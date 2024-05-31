@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vault</title>
+    <script
+      type="application/javascript"
+      src="/lib/browser-polyfill.min.js"
+    ></script>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <h1 class="h1 title">Vault</h1>
+        <nav role="navigation" class="menu" aria-label="Main Menu">
+          <ul class="menu__links">
+            <li>
+              <a href="/html/navigate.html" class="link link--alt"><span id="i18n_browse_secrets"></span></a>
+            </li>
+            <li>
+              <a href="/html/options.html" class="link link--alt link--current"
+                >Options</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="notify"></div>
+
+      <div id="login">
+        <label class="label">
+          <span id="i18n_vault_url"></span>
+          <input type="text" class="input" name="server" id="serverBox" />
+        </label>
+
+        <label class="label">
+          <span id="i18n_ldap_user"></span>
+          <input type="text" class="input" name="login" id="loginBox" />
+        </label>
+
+        <label class="label">
+          <span id="i18n_ldap_password"></span>
+          <input type="password" class="input" name="pass" id="passBox" />
+        </label>
+
+        <button
+          class="button button--primary"
+          id="authButton"
+        ><span id="i18n_login"></span></button>
+      </div>
+
+      <div id="logout" style="display: none">
+        <div class="mainOptions">
+          <label><span id="i18n_option_autosearch"></span>
+            <input class="backendCheckbox" type="checkbox" id="autoSearch">
+          </label>
+        </div>
+        <div id="backendsList"></div>
+        <h4 id="version"></h4>
+        <button class="button" id="logoutButton" ><span id="i18n_logout"></span></button>
+      </div>
+    </main>
+
+    <script src="/lib/Notify.js"></script>
+    <script src="/i18n/page-options.js"></script>
+    <script src="/lib/common.js"></script>
+    <script src="/lib/options.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vault</title>
+    <script
+      type="application/javascript"
+      src="/lib/browser-polyfill.min.js"
+    ></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <script src="/lib/jquery-3.6.0.js"></script>
+    <script src="/lib/jquery-ui.js"></script>
+
+  </script>
+  </head>
+
+  <body>
+    <div id="dialog-form-create" title="Ajouter un secret">
+      <form>
+        <fieldset>
+          <label class="label"><span id="i18n_secret_create_name"></span>
+           <input type="text" name="secret-name" id="secret-create-name" class="input">
+          </label>
+          <label class="label"><span id="i18n_secret_create_value"></span>
+            <input type="text" name="secret-value" id="secret-create-value" class="input">
+          </label>
+     
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+          <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+      </form>
+    </div>
+
+    <div id="dialog-form-edit" title="Modifier un secret">
+      <form>
+        <fieldset>
+          <label class="label"><span id="i18n_secret_edit_name"></span>
+           <input type="text" name="secret-name" id="secret-edit-name" class="input" disabled>
+          </label>
+          <label class="label"><span id="i18n_secret_edit_value"></span>
+            <input type="text" name="secret-value" id="secret-edit-value" class="input">
+          </label>
+     
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+          <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+      </form>
+    </div>
+
+    <header class="header">
+      <div class="header__container">
+        <h1 class="h1 title">Vault</h1>
+        <nav role="navigation" class="menu" aria-label="Main Menu">
+          <ul class="menu__links">
+            <li>
+              <a href="/html/navigate.html" class="link link--alt link--current" ><span id="i18n_browse_secrets"></span>
+              </a>
+            </li>
+            <li><a href="/html/options.html" class="link link--alt">Options</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div role="alert" id="notify" aria-live="assertive"></div>
+      <div class="search-container">
+        <label class="label"><span id="i18n_search_secret"></span>
+          <input
+          type="text"
+          id="vault-search"
+          class="input"
+          size="30"
+        />
+        </label>
+      </div>
+      <div id="result">
+        <div class="result-header">
+          <button id="go-beginning" class="header-button"></button>
+          <button id="go-up" class="header-button"></button>
+          <div id="current-path"></div>
+        </div>
+        <button id="add-secret" class="button">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--inline">
+            <use xlink:href="../icons/add.svg#add-secret"/>
+            </svg>
+        </button>
+        <ul class="list" id="resultList">
+        </ul>
+      </div>
+
+    </main>
+
+    <script src="/i18n/page-navigate.js"></script>
+    <script src="/lib/Notify.js"></script>
+    <script src="/lib/navigate.js" type="module"></script>
+    <script src="/lib/dialog-form.js" type="module"></script>
+
+  </body>
+</html>
