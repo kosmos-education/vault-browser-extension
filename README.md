@@ -1,7 +1,8 @@
-# KVault
+# Vault browser extension
 A firefox/chrome web extension for managing Hashicorp Vault secrets
 
-This extension works with the following fork of the KV plugin with search API endpoint : https://github.com/MochaCaffe/vault
+## Server requirement
+This extension implements a recursive search feature that requires a Vault instance from the following fork: https://github.com/kosmos-education/vault
 
 ## Available authentication methods
 
@@ -9,8 +10,11 @@ This extension works with the following fork of the KV plugin with search API en
 |:--------|
 | `LDAP`  | 
 
-## How to package extension
+## Developing the extension
+
+### Packaging
 
 ```
-zip -r -FS ../vault.zip * --exclude '*.git*'
+cp manifests/manifest-<browser>.json ./manifest.json
+zip -r -FS ./vault.zip * --exclude '*.git*'
 ```
