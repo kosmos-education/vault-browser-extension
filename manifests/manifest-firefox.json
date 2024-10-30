@@ -3,7 +3,7 @@
   "name": "Vault",
   "default_locale": "en",
   "description": "A Firefox extension for managing and searching secrets in Hashicorp Vault",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "action": {
     "default_icon": "icons/logo128.png",
     "default_popup": "html/navigate.html",
