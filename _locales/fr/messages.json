@@ -15,7 +15,7 @@
     "secret_found": {"message": "Secrets trouvés pour "},
     "getting_backends_failure": {"message": "Erreur en récupérant les répertoires de travail"},
     "backends_list": {"message": "Répertoires de travail"},
-    "private_directory": {"message": "Répertoire privé"},
+    "private_directory": {"message": "Répertoire personnel"},
     "secret_name": {"message": "Nom du secret"},
     "secret_value": {"message": "Valeur"},
     "search_secret": {"message": "Rechercher un secret"},
