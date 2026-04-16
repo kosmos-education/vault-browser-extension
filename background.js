@@ -1,5 +1,8 @@
 /* eslint-disable no-console */
 /* global chrome */
+import { copyStringToPageClipboard } from './lib/content/clipboard.js';
+import { fillCredentialsInPage } from './lib/content/form-filler.js';
+
 const idealTokenTTL = '24h';
 const tokenCheckAlarm = 'tokenCheck';
 const tokenRenewAlarm = 'tokenRenew';
@@ -14,14 +17,14 @@ chrome.runtime.onMessage.addListener(async function (request, sender, sendRespon
     case 'copy_to_clipboard':
       chrome.scripting.executeScript({
         target: { tabId: tab },
-        func: handleCopyToClipboard,
+        func: copyStringToPageClipboard,
         args: [request]
       })
       break;
     case 'fill_creds':
       chrome.scripting.executeScript({
         target: { tabId: tab },
-        func: handleFillCredits,
+        func: fillCredentialsInPage,
         args: [request]
       })
       break;
@@ -135,144 +138,3 @@ chrome.runtime.onMessage.addListener(function (message, sender) {
     refreshTokenTimer();
   }
 });
-
-/*
-  Add secret content to clipboard
-*/
-function handleCopyToClipboard(request) {
-  const el = document.createElement('textarea');
-  el.value = request.string;
-  el.setAttribute('readonly', '');
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
-  document.body.appendChild(el);
-  const selected =
-    document.getSelection().rangeCount > 0
-      ? document.getSelection().getRangeAt(0)
-      : false;
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-  if (selected) {
-    document.getSelection().removeAllRanges();
-    document.getSelection().addRange(selected);
-  }
-}
-
-
-/*
-  Inject secret content in username+password input in the current tab
-  scripting.executeScript() requires functions to work in autonomy. Here, dependencies are nested inside it
-*/
-function handleFillCredits(request) {
-  function createEvent(name) {
-    const event = document.createEvent('Events');
-    event.initEvent(name, true, true);
-    return event;
-  }
-
-  function isVisible(node) {
-    if (!node.offsetParent) {
-      return false;
-    }
-
-    if (node.style.display === 'none') {
-      return false;
-    }
-
-    if (node.style.visibility === 'hidden') {
-      return false;
-    }
-
-    const computedStyle = window.getComputedStyle(node);
-    const visibility = computedStyle.getPropertyValue('visibility');
-
-    return visibility !== 'hidden';
-  }
-
-  function findPasswordInput() {
-    // eslint-disable-next-line quotes
-    const passwordNodes = document.querySelectorAll("input[type='password']");
-    for (const node of passwordNodes) {
-      if (isVisible(node)) return node;
-    }
-
-    return passwordNodes.length > 0 ? passwordNodes[0] : null;
-  }
-
-  function findUsernameNodeIn(
-    parentNode,
-    checkVisibility,
-    isUserTriggered = false
-  ) {
-    const matches = [
-      '[autocomplete="email"]',
-      '[autocomplete="username"]',
-      '[autocomplete="nickname"]',
-      'input[id="username"]',
-      'input[id="userid"]',
-      'input[id="login"]',
-      'input[id="email"]',
-      'textarea[id="username"]',
-      'textarea[id="userid"]',
-      'textarea[id="login"]',
-      'textarea[id="email"]',
-      '[type="email"]',
-      '[name="user_name"]',
-      '[name="user"]',
-      '[name="auth[username]"]',
-      '[type="text"][name="username"]',
-      '[type="text"][name="userid"]',
-      '[type="text"][name="login"]',
-      '[type="text"][name="email"]',
-      '[type="text"][name="mail"]',
-      '[type="text"][name="nickname"]',
-      '[type="text"][name="nick"]',
-    ];
-
-    if (parentNode instanceof HTMLFormElement || isUserTriggered) {
-      matches.push('[type="text"]');
-    }
-
-    for (const selector of matches) {
-      const allUsernameNodes = parentNode.querySelectorAll(selector);
-
-      let usernameNode = null;
-      for (const node of allUsernameNodes) {
-        if (checkVisibility ? isVisible(node) : true) {
-          usernameNode = node;
-          break;
-        }
-      }
-      if (usernameNode) {
-        return usernameNode;
-      }
-    }
-
-    return null;
-  }
-
-  function fillIn(node, value) {
-    node.focus();
-    node.value = value;
-    node.dispatchEvent(createEvent('input'));
-    node.dispatchEvent(createEvent('change'));
-    node.blur();
-  }
-
-
-  const passwordNode = findPasswordInput();
-  // A number of websites now prompt for the password separately
-  if (passwordNode) {
-    fillIn(passwordNode, request.password);
-  }
-
-
-  const formNode = passwordNode?.closest('form');
-  const usernameNode = formNode
-    ? findUsernameNodeIn(formNode, true)
-    : findUsernameNodeIn(document, true, request.isUserTriggered);
-  if (!usernameNode) return;
-
-  fillIn(usernameNode, request.username);
-}
