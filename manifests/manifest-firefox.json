@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["lib/browser-polyfill.min.js","lib/navigate.js","lib/common.js","lib/vault.js"]
+      "js": ["lib/browser-polyfill.min.js","lib/navigate.js","lib/vault.js"]
     }
   ],
   "background":{

@@ -3,9 +3,6 @@
 const idealTokenTTL = '24h';
 const tokenCheckAlarm = 'tokenCheck';
 const tokenRenewAlarm = 'tokenRenew';
-if (!chrome.browserAction) {
-  chrome.browserAction = chrome.action;
-}
 
 setupTokenAutoRenew(1800);
 refreshTokenTimer();
