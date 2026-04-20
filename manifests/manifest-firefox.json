@@ -13,12 +13,6 @@
     "48": "icons/logo48.png",
     "128": "icons/logo128.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["lib/browser-polyfill.min.js","lib/navigate.js","lib/vault.js"]
-    }
-  ],
   "background":{
     "scripts": ["background.js"],
     "type": "module"
