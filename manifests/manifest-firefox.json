@@ -3,7 +3,7 @@
   "name": "Vault",
   "default_locale": "en",
   "description": "A Firefox extension for managing and searching secrets in Hashicorp Vault",
-  "version": "1.8.1",
+  "version": "2.0.0",
   "action": {
     "default_icon": "icons/logo128.png",
     "default_popup": "html/navigate.html",
@@ -12,6 +12,15 @@
   "icons": {
     "48": "icons/logo48.png",
     "128": "icons/logo128.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+V",
+        "mac": "Command+Shift+V"
+      },
+      "description": "Open Vault popup"
+    }
   },
   "background":{
     "scripts": ["background.js"],
