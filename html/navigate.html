@@ -8,52 +8,52 @@
       src="/lib/browser-polyfill.min.js"
     ></script>
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/jquery-ui.css">
-    <script src="/lib/jquery-3.6.0.js"></script>
-    <script src="/lib/jquery-ui.js"></script>
-
-  </script>
   </head>
 
   <body>
-    <div id="dialog-form-create" title="Ajouter un secret">
+    <dialog id="dialog-form-create" class="dialog">
       <form>
-        <fieldset>
+        <h2 class="dialog__title" id="i18n_dialog_add_secret"></h2>
+        <fieldset class="dialog__body">
           <label class="label"><span id="i18n_secret_create_name"></span>
-           <input type="text" name="secret-name" id="secret-create-name" class="input">
+            <input type="text" name="secret-name" class="input" required>
           </label>
           <label class="label"><span id="i18n_secret_create_value"></span>
-            <input type="text" name="secret-value" id="secret-create-value" class="input">
+            <input type="text" name="secret-value" class="input" required>
           </label>
-     
-          <!-- Allow form submission with keyboard without duplicating the dialog button -->
-          <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
         </fieldset>
+        <menu class="dialog__actions">
+          <button type="button" class="button" value="cancel" id="i18n_cancel_create"></button>
+          <button type="submit" class="button button--primary" id="i18n_save_create"></button>
+        </menu>
       </form>
-    </div>
+    </dialog>
 
-    <div id="dialog-form-select-keys" title="Sélectionner une clé">
+    <dialog id="dialog-form-edit" class="dialog">
       <form>
-        <fieldset id="select-keys-fieldset">
-        </fieldset>
-      </form>
-    </div>
-
-    <div id="dialog-form-edit" title="Modifier un secret">
-      <form>
-        <fieldset>
+        <h2 class="dialog__title" id="i18n_dialog_edit_secret"></h2>
+        <fieldset class="dialog__body">
           <label class="label"><span id="i18n_secret_edit_name"></span>
-           <input type="text" name="secret-name" id="secret-edit-name" class="input" disabled>
+            <input type="text" name="secret-name" class="input" disabled>
           </label>
           <label class="label"><span id="i18n_secret_edit_value"></span>
-            <input type="text" name="secret-value" id="secret-edit-value" class="input">
+            <input type="text" name="secret-value" class="input" required>
           </label>
-     
-          <!-- Allow form submission with keyboard without duplicating the dialog button -->
-          <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
         </fieldset>
+        <menu class="dialog__actions">
+          <button type="button" class="button" value="cancel" id="i18n_cancel_edit"></button>
+          <button type="submit" class="button button--primary" id="i18n_save_edit"></button>
+        </menu>
       </form>
-    </div>
+    </dialog>
+
+    <dialog id="dialog-form-select-keys" class="dialog">
+      <h2 class="dialog__title" id="i18n_dialog_select_key"></h2>
+      <div class="dialog__body" data-choices></div>
+      <menu class="dialog__actions">
+        <button type="button" class="button" value="cancel" id="i18n_cancel_select"></button>
+      </menu>
+    </dialog>
 
     <header class="header">
       <div class="header__container">
@@ -101,7 +101,6 @@
 
     <script src="/i18n/page-navigate.js"></script>
     <script src="/lib/navigate.js" type="module"></script>
-    <script src="/lib/dialog-form.js" type="module"></script>
 
   </body>
 </html>

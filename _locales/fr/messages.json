@@ -35,5 +35,10 @@
     "secret_added": {"message": "Secret ajouté"},
     "secret_updated": {"message": "Secret modifié"},
     "edit_secret": {"message": "Modifier la valeur"},
-    "option_autosearch": {"message": "Activer la recherche automatique des secrets"}
+    "option_autosearch": {"message": "Activer la recherche automatique des secrets"},
+    "dialog_add_secret": {"message": "Ajouter un secret"},
+    "dialog_edit_secret": {"message": "Modifier un secret"},
+    "dialog_select_key": {"message": "Sélectionner une clé"},
+    "save": {"message": "Enregistrer"},
+    "cancel": {"message": "Annuler"}
 }
