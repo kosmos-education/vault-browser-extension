@@ -16,7 +16,7 @@
         <h2 class="dialog__title" data-i18n="dialog_add_secret"></h2>
         <fieldset class="dialog__body">
           <label class="label"><span data-i18n="secret_name"></span>
-            <input type="text" name="secret-name" class="input" required>
+            <input type="text" name="secret-name" class="input" required data-i18n-placeholder="secret_name_hint">
           </label>
           <label class="label"><span data-i18n="secret_value"></span>
             <input type="text" name="secret-value" class="input" required>
@@ -81,6 +81,10 @@
       </div>
     </header>
 
+    <div id="loader" class="loader" role="status" aria-live="polite" hidden>
+      <span class="loader__spinner" aria-hidden="true"></span>
+    </div>
+
     <main class="main">
       <div role="alert" id="notify" aria-live="assertive"></div>
       <div class="search-container">
@@ -95,14 +99,13 @@
       </div>
       <div id="result">
         <div class="result-header">
-          <button id="go-beginning" class="header-button"></button>
-          <button id="go-up" class="header-button"></button>
           <div id="current-path"></div>
         </div>
         <button id="add-secret" class="button">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--inline">
             <use xlink:href="../icons/add.svg#add-secret"/>
-            </svg>
+          </svg>
+          <span data-i18n="add_secret"></span>
         </button>
         <ul class="list" id="resultList">
         </ul>
