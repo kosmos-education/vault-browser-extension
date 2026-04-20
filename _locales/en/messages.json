@@ -36,6 +36,7 @@
     "secret_updated": {"message": "Secret updated"},
     "edit_secret": {"message": "Edit secret value"},
     "reveal_secret": {"message": "Reveal value"},
+    "more_actions": {"message": "More actions"},
     "option_autosearch": {"message": "Enable secret automatic search"},
     "dialog_add_secret": {"message": "Add a secret"},
     "dialog_edit_secret": {"message": "Edit a secret"},
