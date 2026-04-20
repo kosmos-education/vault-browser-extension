@@ -36,11 +36,12 @@
     "secret_updated": {"message": "Secret updated"},
     "edit_secret": {"message": "Edit secret value"},
     "reveal_secret": {"message": "Reveal value"},
-    "hide_secret": {"message": "Hide value"},
     "option_autosearch": {"message": "Enable secret automatic search"},
     "dialog_add_secret": {"message": "Add a secret"},
     "dialog_edit_secret": {"message": "Edit a secret"},
     "dialog_select_key": {"message": "Select a key"},
+    "dialog_reveal_secret": {"message": "Secret value"},
     "save": {"message": "Save"},
-    "cancel": {"message": "Cancel"}
+    "cancel": {"message": "Cancel"},
+    "close": {"message": "Close"}
 }
