@@ -13,45 +13,45 @@
   <body>
     <dialog id="dialog-form-create" class="dialog">
       <form>
-        <h2 class="dialog__title" id="i18n_dialog_add_secret"></h2>
+        <h2 class="dialog__title" data-i18n="dialog_add_secret"></h2>
         <fieldset class="dialog__body">
-          <label class="label"><span id="i18n_secret_create_name"></span>
+          <label class="label"><span data-i18n="secret_name"></span>
             <input type="text" name="secret-name" class="input" required>
           </label>
-          <label class="label"><span id="i18n_secret_create_value"></span>
+          <label class="label"><span data-i18n="secret_value"></span>
             <input type="text" name="secret-value" class="input" required>
           </label>
         </fieldset>
         <menu class="dialog__actions">
-          <button type="button" class="button" value="cancel" id="i18n_cancel_create"></button>
-          <button type="submit" class="button button--primary" id="i18n_save_create"></button>
+          <button type="button" class="button" value="cancel" data-i18n="cancel"></button>
+          <button type="submit" class="button button--primary" data-i18n="save"></button>
         </menu>
       </form>
     </dialog>
 
     <dialog id="dialog-form-edit" class="dialog">
       <form>
-        <h2 class="dialog__title" id="i18n_dialog_edit_secret"></h2>
+        <h2 class="dialog__title" data-i18n="dialog_edit_secret"></h2>
         <fieldset class="dialog__body">
-          <label class="label"><span id="i18n_secret_edit_name"></span>
+          <label class="label"><span data-i18n="secret_name"></span>
             <input type="text" name="secret-name" class="input" disabled>
           </label>
-          <label class="label"><span id="i18n_secret_edit_value"></span>
+          <label class="label"><span data-i18n="secret_value"></span>
             <input type="text" name="secret-value" class="input" required>
           </label>
         </fieldset>
         <menu class="dialog__actions">
-          <button type="button" class="button" value="cancel" id="i18n_cancel_edit"></button>
-          <button type="submit" class="button button--primary" id="i18n_save_edit"></button>
+          <button type="button" class="button" value="cancel" data-i18n="cancel"></button>
+          <button type="submit" class="button button--primary" data-i18n="save"></button>
         </menu>
       </form>
     </dialog>
 
     <dialog id="dialog-form-select-keys" class="dialog">
-      <h2 class="dialog__title" id="i18n_dialog_select_key"></h2>
+      <h2 class="dialog__title" data-i18n="dialog_select_key"></h2>
       <div class="dialog__body" data-choices></div>
       <menu class="dialog__actions">
-        <button type="button" class="button" value="cancel" id="i18n_cancel_select"></button>
+        <button type="button" class="button" value="cancel" data-i18n="cancel"></button>
       </menu>
     </dialog>
 
@@ -61,7 +61,7 @@
         <nav role="navigation" class="menu" aria-label="Main Menu">
           <ul class="menu__links">
             <li>
-              <a href="/html/navigate.html" class="link link--alt link--current" ><span id="i18n_browse_secrets"></span>
+              <a href="/html/navigate.html" class="link link--alt link--current"><span data-i18n="browse_secrets"></span>
               </a>
             </li>
             <li><a href="/html/options.html" class="link link--alt">Options</a></li>
@@ -73,7 +73,7 @@
     <main class="main">
       <div role="alert" id="notify" aria-live="assertive"></div>
       <div class="search-container">
-        <label class="label"><span id="i18n_search_secret"></span>
+        <label class="label"><span data-i18n="search_secret"></span>
           <input
           type="text"
           id="vault-search"
@@ -99,7 +99,6 @@
 
     </main>
 
-    <script src="/i18n/page-navigate.js"></script>
     <script src="/lib/navigate.js" type="module"></script>
 
   </body>
