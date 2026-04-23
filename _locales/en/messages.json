@@ -11,7 +11,7 @@
     "login": {"message": "Log in"},
     "logout": {"message": "Log out"},
     "logged_out": {"message": "Logged out"},
-    "login_failure": {"message": "Login failure"},
+    "login_failure": {"message": "Login failure: "},
     "fill_all_fields": {"message": "Some fields are empty"},
     "getting_backends_failure": {"message": "Error when listing user backends"},
     "backends_list": {"message": "Available backends"},
@@ -46,5 +46,12 @@
     "dialog_reveal_secret": {"message": "Secret value"},
     "save": {"message": "Save"},
     "cancel": {"message": "Cancel"},
-    "close": {"message": "Close"}
+    "close": {"message": "Close"},
+    "error_network": {"message": "Vault server unreachable"},
+    "error_http_auth": {"message": "Authentication required or token expired"},
+    "error_http_forbidden": {"message": "Access denied"},
+    "error_http_not_found": {"message": "Resource not found"},
+    "error_http_rate_limit": {"message": "Too many requests, please retry"},
+    "error_http_server": {"message": "Vault server error"},
+    "error_http_unknown": {"message": "Request failed"}
 }

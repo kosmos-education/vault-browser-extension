@@ -9,7 +9,7 @@
     "login": {"message": "Se connecter"},
     "logout": {"message": "Se déconnecter"},
     "logged_out": {"message": "Déconnecté"},
-    "login_failure": {"message": "Erreur de connexion"},
+    "login_failure": {"message": "Erreur de connexion: "},
     "fill_all_fields": {"message": "Certains champs sont vides"},
     "secret_notfound": {"message": "Aucun secret trouvé pour "},
     "secret_found": {"message": "Secrets trouvés pour "},
@@ -46,5 +46,12 @@
     "dialog_reveal_secret": {"message": "Valeur du secret"},
     "save": {"message": "Enregistrer"},
     "cancel": {"message": "Annuler"},
-    "close": {"message": "Fermer"}
+    "close": {"message": "Fermer"},
+    "error_network": {"message": "Serveur Vault injoignable"},
+    "error_http_auth": {"message": "Authentification requise ou token expiré"},
+    "error_http_forbidden": {"message": "Accès refusé"},
+    "error_http_not_found": {"message": "Ressource introuvable"},
+    "error_http_rate_limit": {"message": "Trop de requêtes, veuillez réessayer"},
+    "error_http_server": {"message": "Erreur côté serveur Vault"},
+    "error_http_unknown": {"message": "Échec de la requête"}
 }
